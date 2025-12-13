@@ -1,0 +1,49 @@
+:root {
+  --mainEng-font: "Montserrat"; /* Main English font family */
+  --mainKor-font: "nanumSquareNeo"; /* Main Korean font family */
+  --mainNum-font: "gmarket"; /* Main numeric font family */
+
+  --mainBg-color: #f3ede8; /* Main background color */
+  --subBg100: #cdc0b1; /* Sub background color 100 */
+  --subBg200: #afa395; /* Sub background color 200 */
+  --subBg300: #81887c; /* Sub background color 300 */
+  --subBg400: #afa7a2; /* Sub background color 400 */
+  --subBg500: #a6afa2; /* Sub background color 500 */
+
+  --white: #fff; /* White color */
+  --black: #000; /* Black color */
+  --black100: #2b2b2b; /* Dark gray color 100 */
+  --black200: #434343; /* Dark gray color 200 */
+  --black300: #686868; /* Medium gray color 300 */
+  --black400: #e0e0e0; /* Light gray color 400 */
+
+  /* Basic font settings */
+  font-family: var(--mainEng-font), var(--mainKor-font); /* Font family using main English and Korean fonts */
+  font-size: 16px; /* Default font size */
+  line-height: 1.5; /* Default line height */
+  font-weight: 400; /* Default font weight */
+
+  /* Properties for smooth font rendering */
+  font-synthesis: none; /* Disable font synthesis */
+  text-rendering: optimizeLegibility; /* Optimize text rendering for legibility */
+  -webkit-font-smoothing: antialiased; /* Antialiased font smoothing for WebKit browsers */
+  -moz-osx-font-smoothing: grayscale; /* Grayscale font smoothing for Mozilla on macOS */
+
+  /* Prevent text enlargement in iPhone landscape mode */
+  -webkit-text-size-adjust: 100%; /* Prevent automatic text size adjustment on iOS */
+}
+
+@media (max-width: 800px) {
+  /* Media query for screens with max width 800px */
+  :root {
+    font-size: 14px; /* Smaller font size for mobile devices */
+    line-height: 1.4; /* Adjusted line height for mobile devices */
+  }
+}
+
+body {
+  color: var(--black100); /* Text color using black100 variable */
+  background-color: var(
+    --mainBg-color
+  ); /* Background color using main background variable */
+}
