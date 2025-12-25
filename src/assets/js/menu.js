@@ -1,3 +1,19 @@
+/**
+ * Initializes the mobile menu functionality.
+ */
 export function menu() {
+  // Log the menu function to the console for debugging
   console.log(menu);
+
+  const headerToggle = document.getElementById("headerToggle");
+  const headerNav = document.querySelector(".header__nav");
+
+  if (headerToggle) {
+    headerToggle.addEventListener("click", () => {
+      headerNav.classList.toggle("show");
+      headerToggle.getAttribute("aria-expanded") === "true"
+        ? headerToggle.setAttribute("aria-expanded", "false")
+        : headerToggle.setAttribute("aria-expanded", "true");
+    });
+  }
 }
