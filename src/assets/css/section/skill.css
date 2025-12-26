@@ -1,2 +1,124 @@
-#skill {
+/* Main container for skill section - uses flexbox for side-by-side layout */
+.slkll__inner {
+  /* Add 16px spacing on all sides of the container */
+  padding: 16px;
+  /* Enable flexbox layout for arranging child elements */
+  display: flex;
+  /* Distribute child elements with equal space between them (title on left, description on right) */
+  justify-content: space-between;
+}
+
+/* Skill title section - positioned to remain visible while scrolling */
+.skill__title {
+  /* Sticky positioning keeps element visible at top while scrolling down (until parent scrolls out of view) */
+  position: sticky;
+  /* Position the sticky element 70px from the top of the viewport */
+  top: 70px;
+  /* Position from the left edge of the container */
+  left: 5px;
+  /* Take up 48% of the parent container width (leaving ~50% for description) */
+  width: 48%;
+  /* Set height to 5% of the viewport width for responsive sizing */
+  height: 5vw;
+  /* Set font size to 4% of the viewport width - scales responsively with screen size */
+  font-size: 4vw;
+  /* Apply maximum boldness to the text (900 scale: 100-900) */
+  font-weight: 900;
+  /* Set line height to 1.6 times the font size for improved readability */
+  line-height: 1.6;
+  /* Use Korean font family from CSS custom property variable */
+  font-family: var(--mainKor-font);
+  /* Convert all text characters to uppercase letters */
+  text-transform: uppercase;
+  /* Apply dark color using CSS custom property (likely #000000 or similar) */
+  color: var(--black100);
+  /* Add a 0.4vw (0.4% of viewport width) solid bottom border in black color */
+  border-bottom: 0.4vw solid var(--black100);
+}
+
+/* Emphasized text inside skill title - for secondary information */
+.skill__title em {
+  /* Set font size to a fixed 1.25rem (approximately 20px on standard browsers) */
+  font-size: 1.25rem;
+  /* Use regular font weight (400 scale) instead of bold for lighter appearance */
+  font-weight: 400;
+  /* Set line height to 2 times the font size for more vertical spacing */
+  line-height: 2;
+}
+
+/* Skill description section - contains skill details and information */
+.skill__desc {
+  /* Take up 50% of the parent container width (right side) */
+  width: 50%;
+}
+
+/* Number or count span inside skill description - large prominent numbers */
+.skill__desc span {
+  /* Set font size to 5% of the viewport width - larger than title for emphasis */
+  font-size: 5vw;
+  /* Set line height to 1 for compact appearance (no extra vertical space) */
+  line-height: 1;
+  /* Apply maximum boldness to make numbers stand out */
+  font-weight: 900;
+  /* Override previous line-height with 1.3 for better readability */
+  line-height: 1.3;
+  /* Use numeric font family from CSS custom property (specialized number font) */
+  font-family: var(--mainNum-font);
+}
+
+/* Heading 3 inside skill description - skill category titles */
+.skill__desc h3 {
+  /* Set font size to fixed 1.5rem (approximately 24px) */
+  font-size: 1.5rem;
+  /* Add underline text decoration to the heading */
+  text-decoration: underline;
+  /* Position underline below the text baseline instead of default position */
+  text-underline-position: under;
+  /* Add 1% of viewport width bottom margin for spacing below heading */
+  margin-bottom: 1vw;
+}
+
+/* Paragraph text inside skill description - detailed skill information */
+.skill__desc p {
+  /* Add large bottom margin of 30% of viewport height for spacing between skill items */
+  margin-bottom: 30vh;
+  /* Set font size to fixed 1.1rem (approximately 17.6px) for readable body text */
+  font-size: 1.1rem;
+}
+
+/* Responsive media query - applies styles for tablets and smaller devices (max width 800px) */
+@media (max-width: 800px) {
+  /* Main container adjustment for smaller screens */
+  .slkll__inner {
+    /* Change layout from side-by-side to vertical stacking (title above description) */
+    flex-direction: column;
+  }
+
+  /* Skill title adjustments for tablets */
+  .skill__title {
+    /* Expand title to full width of container instead of 48% */
+    width: 100%;
+    /* Add 10% of viewport width bottom margin for separation from description */
+    margin-bottom: 10vw;
+    /* Use fixed font size of 30px instead of responsive 4vw */
+    font-size: 30px;
+    /* Remove fixed height constraint - let content determine height */
+    height: auto;
+    /* Adjust sticky positioning to 68px from top (slightly different from desktop 70px) */
+    top: 68px;
+    /* Apply main background color from CSS custom property to prevent transparency */
+    background-color: var(--mainBg-color);
+  }
+
+  /* Skill description adjustments for tablets */
+  .skill__desc {
+    /* Expand description to full width of container instead of 50% */
+    width: 100%;
+  }
+
+  /* Number/span adjustments for tablets */
+  .skill__desc span {
+    /* Use very large responsive font size of 20% of viewport width for mobile emphasis */
+    font-size: 20vw;
+  }
 }
