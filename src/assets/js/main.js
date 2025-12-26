@@ -1,23 +1,29 @@
-// Import the menu functionality module
+// Import the 'menu' module from menu.js to handle mobile menu toggling.
 import { menu } from "./menu.js";
-// Import the portfolio functionality module
+// Import the 'port' module from port.js to handle portfolio section interactions.
 import { port } from "./port.js";
-// Import the link/navigation functionality module
+// Import the 'link' module from link.js to handle navigation links.
 import { link } from "./link.js";
-// Import the smooth scrolling functionality module
+// Import the 'smooth' module from smooth.js to handle smooth scrolling effects.
 import { smooth } from "./smooth.js";
 
-// Wait for the entire page and all resources to finish loading
+/**
+ * Attaches an event listener to the window object that triggers once all page content
+ * (including CSS, images, and subframes) has finished loading.
+ *
+ * @param {string} "load" - The name of the event to listen for.
+ * @param {function} anonymous - A callback function that initializes all application modules.
+ */
 window.addEventListener("load", function () {
-  // Initialize smooth scrolling behavior
+  // Executes the smooth scroll initialization logic.
   smooth();
-  // Initialize navigation link functionality
+  // Executes the link/navigation initialization logic.
   link();
-  // Initialize mobile menu functionality
+  // Executes the mobile menu initialization logic.
   menu();
-  // Initialize portfolio section functionality
+  // Executes the portfolio section initialization logic.
   port();
 });
 
-// Log application startup message to console
+// Prints "start" to the console to indicate that the main script execution has begun.
 console.log("start");

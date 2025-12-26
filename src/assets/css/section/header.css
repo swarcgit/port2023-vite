@@ -1,120 +1,173 @@
-/* Header section styles */
+/* Root header container styling */
 #header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 10000;
-}
-.header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(116, 99, 99, 0.1);
-  backdrop-filter: blur(15px);
-  padding: 1rem;
-}
-.header__logo {
-  font-size: 0.9rem;
-  text-align: center;
-  text-transform: uppercase;
-  line-height: 1;
-}
-.header__logo em {
-  font-size: 10px;
-  display: block;
-  color: var(--black200);
-}
-.header__nav li {
-  display: inline;
-}
-.header__nav li a {
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 14px;
-  position: relative;
-}
-.header__nav li a::before {
-  content: "";
-  width: calc(100% - 28px);
-  height: 1px;
-  background-color: var(--black);
-  position: absolute;
-  left: 14px;
-  bottom: 10px;
-  transform: scaleX(0);
-  transition: all 0.3s;
-}
-.header__nav li a:hover::before {
-  transform: scaleX(1);
-}
-.header__nav__mobile {
-  display: none;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-.header__nav__mobile span {
-  display: block;
-  width: 40px;
-  height: 2px;
-  background-color: var(--black);
-  margin-top: 19px;
-  position: relative;
-}
-.header__nav__mobile span::before {
-  content: "";
-  width: 40px;
-  height: 2px;
-  background-color: var(--black);
-  position: absolute;
-  right: 0;
-  top: 6px;
-  transition: width 0.3s;
-}
-.header__nav__mobile span::after {
-  content: "";
-  width: 40px;
-  height: 2px;
-  background-color: var(--black);
-  position: absolute;
-  left: 0;
-  bottom: 6px;
-  transition: width 0.3s;
+  position: fixed; /* Fixes the header to the viewport, it stays in place when scrolling */
+  left: 0; /* Aligns the header to the left edge of the viewport */
+  top: 0; /* Aligns the header to the top edge of the viewport */
+  width: 100%; /* Ensures the header spans the full width of the viewport */
+  z-index: 10000; /* Sets a very high stack order to ensure it appears on top of all other elements */
 }
 
+/* Inner wrapper for header content layout */
+.header__inner {
+  display: flex; /* Uses Flexbox for flexible layout of logo and navigation */
+  align-items: center; /* Vertically centers the items inside the flex container */
+  justify-content: space-between; /* Pushes the logo to the left and navigation to the right */
+  background-color: rgba(
+    116,
+    99,
+    99,
+    0.1
+  ); /* Semi-transparent background (Red: 116, Green: 99, Blue: 99, Alpha: 10%) */
+  backdrop-filter: blur(
+    15px
+  ); /* Applies a Gaussian blur effect to the background behind the header */
+  padding: 1rem; /* Adds equal padding of 1 root element font-size on all sides */
+}
+
+/* Logo container styling */
+.header__logo {
+  font-size: 0.9rem; /* Sets font size to 90% of the root element's font size */
+  text-align: center; /* Centers the text within the logo container */
+  text-transform: uppercase; /* Converts all text characters to capital letters */
+  line-height: 1; /* Sets the line height to 1, minimizing vertical space between lines */
+}
+
+/* Small sub-text or accent within the logo */
+.header__logo em {
+  font-size: 10px; /* Sets fixed font size to 10 pixels */
+  display: block; /* Forces the element to occupy its own line (block-level) */
+  color: var(--black200); /* Uses a predefined variable for the text color */
+}
+
+/* Navigation list item styling */
+.header__nav li {
+  display: inline; /* Displays list items horizontally on the same line */
+}
+
+/* Navigation link styling */
+.header__nav li a {
+  text-transform: uppercase; /* Converts link text to all caps */
+  font-size: 14px; /* Sets link font size to 14 pixels */
+  padding: 14px; /* Adds 14 pixels of clickable space around the link text */
+  position: relative; /* Establish a positioning context for the ::before pseudo-element */
+}
+
+/* Animated underline effect for navigation links using pseudo-element */
+.header__nav li a::before {
+  content: ""; /* Required to render the pseudo-element */
+  width: calc(
+    100% - 28px
+  ); /* Sets width to match link text (100% minus the left/right padding) */
+  height: 1px; /* Sets the thickness of the underline to 1 pixel */
+  background-color: var(
+    --black
+  ); /* Uses a predefined variable for the underline color */
+  position: absolute; /* Positions the underline relative to its parent link */
+  left: 14px; /* Aligns with the start of the link text (offsetting the padding) */
+  bottom: 10px; /* Positions the line 10 pixels from the bottom of the link container */
+  transform: scaleX(
+    0
+  ); /* Initially hides the line by scaling its horizontal width to zero */
+  transition: all 0.2s; /* Animates changes to properties (like transform) over 0.3 seconds */
+}
+
+/* Hover state for navigation link underline */
+.header__nav li a:hover::before {
+  transform: scaleX(
+    1
+  ); /* Reveals the underline by scaling its horizontal width back to 100% */
+}
+
+/* Mobile menu toggle button (hamburger icon container) */
+.header__nav__mobile {
+  display: none; /* Hidden by default on desktop screens */
+  width: 40px; /* Fixed width of 40 pixels */
+  height: 40px; /* Fixed height of 40 pixels */
+  cursor: pointer; /* Changes the mouse pointer to a hand icon on hover */
+}
+
+/* Middle bar of the hamburger icon */
+.header__nav__mobile span {
+  display: block; /* Makes the span a block element */
+  width: 40px; /* Span width of 40 pixels */
+  height: 2px; /* Line thickness of 2 pixels */
+  background-color: var(--black); /* Bar color using a variable */
+  margin-top: 19px; /* Centers the middle bar vertically within the 40px container */
+  position: relative; /* Provides positioning context for top and bottom bars */
+}
+
+/* Top bar of the hamburger icon */
+.header__nav__mobile span::before {
+  content: ""; /* Required to render the pseudo-element */
+  width: 40px; /* Top bar width */
+  height: 2px; /* Top bar thickness */
+  background-color: var(--black); /* Bar color */
+  position: absolute; /* Positions relative to the middle bar (parent span) */
+  right: 0; /* Aligns to the right edge */
+  top: 6px; /* Positions 6 pixels above the middle bar */
+  transition: width 0.3s; /* Animates width changes when the menu is toggled */
+}
+
+/* Bottom bar of the hamburger icon */
+.header__nav__mobile span::after {
+  content: ""; /* Required to render the pseudo-element */
+  width: 40px; /* Bottom bar width */
+  height: 2px; /* Bottom bar thickness */
+  background-color: var(--black); /* Bar color */
+  position: absolute; /* Positions relative to the middle bar (parent span) */
+  left: 0; /* Aligns to the left edge */
+  bottom: 6px; /* Positions 6 pixels below the middle bar */
+  transition: width 0.3s; /* Animates width changes when the menu is toggled */
+}
+
+/* Media query for tablet and mobile devices (800px width or less) */
 @media (max-width: 800px) {
+  /* Hide standard navigation on small screens */
   .header__nav {
     display: none;
   }
+
+  /* Show navigation when the 'show' class is applied (via JavaScript) */
   .header__nav.show {
     display: block;
   }
+
+  /* Dropdown menu styling when mobile navigation is active */
   .header__nav.show ul {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 68px;
-    background-color: rgba(116, 99, 99, 0.1);
-    backdrop-filter: blur(15px);
-    z-index: 10000;
-    min-width: 150px;
-    padding: 20px 0;
+    display: block; /* Overrides any horizontal layout to vertical */
+    position: absolute; /* Positions the menu absolutely relative to the header */
+    right: 0; /* Aligns menu to the right side of the screen */
+    top: 68px; /* Positions below the header (approx. height of header_inner) */
+    background-color: rgba(116, 99, 99, 0.1); /* Matches header background */
+    backdrop-filter: blur(15px); /* Matches header blur effect */
+    z-index: 10000; /* Ensures it stays on top */
+    min-width: 150px; /* Minimum width for the dropdown menu */
+    padding: 20px 0; /* Adds vertical padding inside the dropdown */
   }
+
+  /* Full-width list items in mobile menu */
   .header__nav.show li {
-    display: block;
-    text-align: right;
+    display: block; /* Stacks menu items vertically */
+    text-align: right; /* Aligns text to the right for mobile style */
   }
+
+  /* Link styling in mobile menu */
   .header__nav.show li a {
-    display: inline-block;
-    padding: 10px;
+    display: inline-block; /* Allows vertical padding to affect the layout */
+    padding: 10px; /* Adds touch-friendly padding for mobile users */
   }
+
+  /* Visual feedback for the hamburger icon when menu is open (shortens top bar) */
   .header__nav.show + .header__nav__mobile span::before {
-    width: 20px;
+    width: 20px; /* Reduces width to 20 pixels */
   }
+
+  /* Visual feedback for the hamburger icon when menu is open (shortens bottom bar) */
   .header__nav.show + .header__nav__mobile span::after {
-    width: 20px;
+    width: 20px; /* Reduces width to 20 pixels */
   }
+
+  /* Reveals the hamburger button on mobile screens */
   .header__nav__mobile {
     display: block;
   }
